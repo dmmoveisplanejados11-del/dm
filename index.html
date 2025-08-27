@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammel Modulados - Móveis Planejados em Manaus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .testimonial-slider {
+            scroll-snap-type: x mandatory;
+        }
+        .testimonial-slide {
+            scroll-snap-align: start;
+        }
+        .process-step:hover .process-icon {
+            transform: scale(1.1);
+            background-color: #f59e0b;
+        }
+        .room-card:hover .room-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="https://example.com/dm-moveis-logo.jpg" alt="DM Móveis Planejados" class="h-16">
+            </a>
+            
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-800 hover:text-amber-600 font-medium transition">Home</a>
+                
+                <div class="dropdown relative">
+                    <button class="text-gray-800 hover:text-amber-600 font-medium transition flex items-center">
+                        Portfólio <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md mt-2 py-2 w-48 z-50">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-50 hover:text-amber-600">Cozinhas</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-50 hover:text-amber-600">Salas</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-50 hover:text-amber-600">Quartos</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-50 hover:text-amber-600">Closets</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-50 hover:text-amber-600">Banheiros</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-50 hover:text-amber-600">Corporativo</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="text-gray-800 hover:text-amber-600 font-medium transition">Sobre nós</a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Home</a>
+            
+            <div class="dropdown relative">
+                <button class="w-full text-left py-2 text-gray-800 hover:text-amber-600 flex justify-between items-center">
+                    Portfólio <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu hidden pl-4">
+                    <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Cozinhas</a>
+                    <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Salas</a>
+                    <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Quartos</a>
+                    <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Closets</a>
+                    <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Banheiros</a>
+                    <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Corporativo</a>
+                </div>
+            </div>
+            
+            <a href="#" class="block py-2 text-gray-800 hover:text-amber-600">Sobre nós</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen text-white overflow-hidden">
+        <!-- Background Images -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100" id="hero-bg-1" style="background-image: url('https://ammel.com.br/wp-content/uploads/2019/11/cozinha-escura.jpg')"></div>
+        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" id="hero-bg-2" style="background-image: url('https://ammel.com.br/wp-content/uploads/2019/11/banheiro-planejado.jpg')"></div>
+        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" id="hero-bg-3" style="background-image: url('https://ammel.com.br/wp-content/uploads/2019/11/closet-planejado-manaus.jpg')"></div>
+        
+        <!-- Content -->
+        <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">MÓVEIS PLANEJADOS</h1>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-amber-400" id="hero-caption">Cozinhas Planejadas</h2>
+                <p class="text-xl mb-8">FABRICAÇÃO EM MANAUS</p>
+            </div>
+        </div>
+        
+        <!-- Fixed Button -->
+        <div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+            <a href="#" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block shadow-lg">
+                Solicite Orçamento
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">FABRICAÇÃO PRÓPRIA EM MANAUS</h3>
+                    <p class="text-gray-600">Produção local com qualidade garantida</p>
+                </div>
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">RÁPIDA ENTREGA</h3>
+                    <p class="text-gray-600">Cumprimento rigoroso dos prazos em até 40 dias úteis</p>
+                </div>
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">PAGAMENTO EM ATÉ 10 VEZES</h3>
+                    <p class="text-gray-600">Sem juros no cartão de crédito
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Testimonials Section -->
+<section class="py-16 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">O que os clientes DM estão falando!</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Testimonial 1 -->
+      <div class="bg-white p-8 rounded-lg shadow-md h-full flex flex-col">
+        <div class="text-amber-400 text-2xl mb-4">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="text-gray-700 mb-6 flex-grow">
+          "Ótima empresa, super confiável.
+          Todos os móveis com padrão de qualidade elevadíssimo, além do apoio durante todo o processo de montagem do início até a entrega.
+          Estou super satisfeita!!"
+        </p>
+        <div class="flex items-center justify-start mt-auto">
+          <div class="bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+            <i class="fas fa-user text-gray-600"></i>
+          </div>
+          <h4 class="font-bold">Raila Fernandes</h4>
+        </div>
+      </div>
+      
+      <!-- Testimonial 2 -->
+      <div class="bg-white p-8 rounded-lg shadow-md h-full flex flex-col">
+        <div class="text-amber-400 text-2xl mb-4">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="text-gray-700 mb-6 flex-grow">
+          "Foi uma excelente experiência realizar o projeto com a DM, o resultado ficou incrível. 
+          O atendimento administrativo foi ótimo do início ao fim do projeto.
+          Ressalto ainda o ótimo trabalho do montador além de muito experiente."
+        </p>
+        <div class="flex items-center justify-start mt-auto">
+          <div class="bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+            <i class="fas fa-user text-gray-600"></i>
+          </div>
+          <h4 class="font-bold">Erivaldo R. Santana</h4>
+        </div>
+      </div>
+      
+      <!-- Testimonial 3 -->
+      <div class="bg-white p-8 rounded-lg shadow-md h-full flex flex-col">
+        <div class="text-amber-400 text-2xl mb-4">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="text-gray-700 mb-6 flex-grow">
+          "Ótimo atendimento, entrega e produtos de qualidade, além do ótimo parcelamento.
+Estou muito satisfeita com o trabalho, meus armários ficaram incríveis, dentro do prazo combinado. Atendimento super profissional e atencioso. Recomendo de olhos fechados!"
+        </p>
+        <div class="flex items-center justify-start mt-auto">
+          <div class="bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+            <i class="fas fa-user text-gray-600"></i>
+          </div>
+          <h4 class="font-bold">Emanuele Silva</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Rooms Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nossos Ambientes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Quartos -->
+                <div class="room-card relative overflow-hidden rounded-lg shadow-md">
+                    <img src="g" alt="Quarto" class="w-full h-64 object-cover">
+                    <div class="room-overlay absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Quartos</h3>
+                        <p class="text-center italic mb-4">"Meu travesseiro sabe de tudo. É um diário de penas e plumas onde afogo o rosto para sonhar o que a vida não me deixa viver acordado."</p>
+                        <p class="font-semibold">— Carlos Drummond</p>
+                        <a href="#" class="mt-4 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 inline-block">
+                            Ver Mais
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Salas -->
+                <div class="room-card relative overflow-hidden rounded-lg shadow-md">
+                    <img src="" alt="Sala" class="w-full h-64 object-cover">
+                    <div class="room-overlay absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Salas</h3>
+                        <p class="text-center italic mb-4">"A casa, para mim, é um lugar onde as paredes são a nossa pele, os móveis são os nossos órgãos e a sala é onde pulsa o coração que recebe os amigos."</p>
+                        <p class="font-semibold">— Vinicius de Moraes </p>
+                        <a href="#" class="mt-4 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 inline-block">
+                            Ver Mais
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Cozinhas -->
+                <div class="room-card relative overflow-hidden rounded-lg shadow-md">
+                    <img src="" alt="Cozinha" class="w-full h-64 object-cover">
+                    <div class="room-overlay absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Cozinhas</h3>
+                        <p class="text-center italic mb-4">"A cozinha é a alquimia da casa. É onde a magia acontece, transformando o trivial em sagrado, a fome em comunhão."</p>
+                        <p class="font-semibold">— Rubem Alves</p>
+                        <a href="#" class="mt-4 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 inline-block">
+                            Ver Mais
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Closets -->
+                <div class="room-card relative overflow-hidden rounded-lg shadow-md">
+                    <img src="" alt="Closet" class="w-full h-64 object-cover">
+                    <div class="room-overlay absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Closets</h3>
+                        <p class="text-center italic mb-4">"Nossas roupas são as palavras que escolhemos para a primeira frase que diremos ao mundo a cada dia."</p>
+                        <p class="font-semibold">— Glória Kalil</p>
+                        <a href="#" class="mt-4 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 inline-block">
+                            Ver Mais
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Por que comprar na DM ?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">100% MDF</h3>
+                    <p class="text-gray-600">Materiais de alta qualidade e durabilidade</p>
+                </div>
+                
+             
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fabricação local em Manaus</h3>
+                    <p class="text-gray-600">Agilidade na produção e entrega</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Equipe especializada</h3>
+                    <p class="text-gray-600">Profissionais capacitados para melhor atendê-lo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Como funciona</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="process-step text-center p-6 rounded-lg bg-gray-50 hover:bg-amber-50 transition">
+                    <div class="process-icon mx-auto bg-amber-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl mb-4 transition">
+                        1
+                    </div>
+                    <img src="https://ammel.com.br/wp-content/uploads/2019/11/cafe.jpg" alt="Café" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Você vem tomar um café com a gente</h3>
+                    <p class="text-gray-600">Conheça nosso Escritório e Showroom</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step text-center p-6 rounded-lg bg-gray-50 hover:bg-amber-50 transition">
+                    <div class="process-icon mx-auto bg-amber-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl mb-4 transition">
+                        2
+                    </div>
+                    <img src="https://ammel.com.br/wp-content/uploads/2019/11/planejamento-e-projeto-de-moveis.jpg" alt="Planejamento" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Briefing e projeto</h3>
+                    <p class="text-gray-600">Te mostramos nossos projetos, fazemos um briefing e criamos um orçamento</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step text-center p-6 rounded-lg bg-gray-50 hover:bg-amber-50 transition">
+                    <div class="process-icon mx-auto bg-amber-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl mb-4 transition">
+                        3
+                    </div>
+                    <img src="https://ammel.com.br/wp-content/uploads/2019/11/visita-a-loja.jpg" alt="Contrato" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Assinatura do contrato</h3>
+                    <p class="text-gray-600">Se você gostar, assinamos o contrato</p>
+                </div>
+ 
+                <!-- Step 4 -->
+                <div class="process-step text-center p-6 rounded-lg bg-gray-50 hover:bg-amber-50 transition">
+                    <div class="process-icon mx-auto bg-amber-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl mb-4 transition">
+                        4
+                    </div>
+                    <img src="" alt="Fabricação" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Fabricação</h3>
+                    <p class="text-gray-600">Fabricamos os móveis em nossa fábrica aqui mesmo em Manaus</p>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step text-center p-6 rounded-lg bg-gray-50 hover:bg-amber-50 transition">
+                    <div class="process-icon mx-auto bg-amber-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl mb-4 transition">
+                        5
+                    </div>
+                    <img src="https://ammel.com.br/wp-content/uploads/2019/11/medicao-de-imovel.jpg" alt="Ajustes" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Ajustes finais</h3>
+                    <p class="text-gray-600">Fazemos os últimos ajustes técnicos e revisões</p>
+                </div>
+                
+                <!-- Step 6 -->
+                <div class="process-step text-center p-6 rounded-lg bg-gray-50 hover:bg-amber-50 transition">
+                    <div class="process-icon mx-auto bg-amber-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl mb-4 transition">
+                        6
+                    </div>
+                    <img src="" alt="Entrega" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Entrega e montagem</h3>
+                    <p class="text-gray-600">Entregamos e montamos os seus ambientes exatamente como contratado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-amber-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Pronto para transformar seu espaço?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Entre em contato conosco e solicite um orçamento sem compromisso</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#" class="bg-white hover:bg-gray-100 text-amber-600 font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
+                    <i class="fas fa-phone mr-2"></i> (92) 99298-3215
+                </a>
+                <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
+                    <i class="fas fa-envelope mr-2"></i> Enviar Mensagem
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Login</h3>
+                <button id="close-login" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700 mb-2">Usuário ou Email</label>
+                    <input type="text" id="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-gray-700 mb-2">Senha</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" class="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-gray-700">Lembrar-me</label>
+                    </div>
+                    <a href="#" class="text-amber-600 hover:underline">Esqueceu sua senha?</a>
+                </div>
+                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                    Entrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Hero background rotation
+        const backgrounds = [
+            { id: 'hero-bg-1', caption: 'Cozinhas Planejadas' },
+            { id: 'hero-bg-2', caption: 'Banheiro Planejado' },
+            { id: 'hero-bg-3', caption: 'Closet Planejado' }
+        ];
+        
+        let currentBg = 0;
+        
+        function rotateBackground() {
+            // Hide current background
+            document.getElementById(backgrounds[currentBg].id).classList.add('opacity-0');
+            document.getElementById(backgrounds[currentBg].id).classList.remove('opacity-100');
+            
+            // Update current index
+            currentBg = (currentBg + 1) % backgrounds.length;
+            
+            // Show next background
+            document.getElementById(backgrounds[currentBg].id).classList.add('opacity-100');
+            document.getElementById(backgrounds[currentBg].id).classList.remove('opacity-0');
+            
+            // Update caption
+            document.getElementById('hero-caption').textContent = backgrounds[currentBg].caption;
+        }
+        
+        // Rotate every 3 seconds
+        setInterval(rotateBackground, 3000);
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Dropdown menus
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            
+            button.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        });
+        
+        
+        // Login modal
+        const loginModal = document.getElementById('login-modal');
+        const closeLogin = document.getElementById('close-login');
+        
+        document.querySelectorAll('[href="#login-popup"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginModal.classList.remove('hidden');
+            });
+        });
+        
+        closeLogin.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.add('hidden');
+            }
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=rideword/dm-m-veis-planejados" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
